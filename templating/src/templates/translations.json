@@ -1,0 +1,12 @@
+{
+  "it": {
+    "intro": {
+      "hello": "Ciao"
+    }
+  },
+  "en": {
+    "intro": {
+      "hello": "Hello"
+    }
+  }
+}
