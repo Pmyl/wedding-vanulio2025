@@ -50,9 +50,19 @@ body {
     --greenColor: #a4d79b;
     --greenColorTransparent: rgb(164, 215, 155, 0.5);
     --textColor: #464646;
+    --color1: #ffe2bb;
+    --color1Transparent: #ffe2bbf0;
+    --color2: #f49bb9;
+    --color2Transparent: #f49bb9f0;
+    --color3: #a1d3dc;
+    --color3Transparent: #a1d3dcf0;
+    --color4: #c2dcad;
+    --color4Transparent: #c2dcadf0;
+    --color5: #b8d779;
+    --color5Transparent: #b8d779f0;
 
     margin: 0;
-    background-color: #eeeeee;
+    background-color: #eee;
     font-family: "Roboto", sans-serif;
     overflow-x: hidden;
     padding: 0;
@@ -115,7 +125,7 @@ body {
 }
 
 .married .married-polaroid-container .married-polaroid-banner {
-    background-color: var(--greenColor);
+    background-color: var(--color2);
     width: 100%;
     height: 80%;
     position: absolute;
@@ -171,9 +181,9 @@ body {
     .married .married-polaroid-container .married-polaroid-banner {
         background-image: linear-gradient(
             to right,
-            var(--greenColorTransparent),
-            var(--greenColor),
-            var(--greenColorTransparent)
+            var(--color2Transparent),
+            var(--color2),
+            var(--color2Transparent)
         );
         background-color: transparent;
     }
@@ -239,20 +249,35 @@ body {
 }
 
 .section-divider {
-    background-color: var(--greenColor);
+    background-color: var(--maincolor);
     border: none;
     margin: 25px 0;
     height: 80px;
     width: 100%;
 }
 
+.section-divider-color1 {
+    --maincolor: var(--color1);
+    --maincolorTransparent: var(--color1Transparent);
+}
+
+.section-divider-color2 {
+    --maincolor: var(--color4);
+    --maincolorTransparent: var(--color4Transparent);
+}
+
+.section-divider-color3 {
+    --maincolor: var(--color3);
+    --maincolorTransparent: var(--color3Transparent);
+}
+
 @media only screen and (min-width: 649px) {
     .section-divider {
         background-image: linear-gradient(
             to right,
-            var(--greenColorTransparent),
-            var(--greenColor),
-            var(--greenColorTransparent)
+            var(--maincolorTransparent),
+            var(--maincolor),
+            var(--maincolorTransparent)
         );
         background-color: transparent;
     }
