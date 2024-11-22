@@ -3,6 +3,8 @@ use std::fs;
 use std::io::Write;
 use tera::{Context, Tera};
 
+// TODO: can I run this in the build.rs of the main app?
+
 fn main() -> Result<(), Box<dyn std::error::Error>> {
     let tera = Tera::new("templating/src/templates/*.html").unwrap();
 
