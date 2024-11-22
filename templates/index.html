@@ -8,7 +8,11 @@
             name="viewport"
             content="width=device-width, initial-scale=1.0, viewport-fit=cover"
         />
-        <link rel="icon" type="image/gif" href="./assets/favicon.gif" />
+        <link
+            rel="icon"
+            type="image/gif"
+            href="{{assetsPosition}}/assets/favicon.gif"
+        />
         <link
             href="https://fonts.googleapis.com/css?family=Roboto&display=swap"
             rel="stylesheet"
@@ -48,19 +52,19 @@
             <p class="countdown-title">{{countdown}}</p>
             <div class="countdown-time">
                 <div class="countdown-days">
-                    <p class="countdown-digit">{{days}}</p>
+                    <p class="countdown-digit"></p>
                     <p class="countdown-unit">{{days}}</p>
                 </div>
                 <div class="countdown-hours">
-                    <p class="countdown-digit">{{hours}}</p>
+                    <p class="countdown-digit"></p>
                     <p class="countdown-unit">{{hours}}</p>
                 </div>
                 <div class="countdown-minutes">
-                    <p class="countdown-digit">{{minutes}}</p>
+                    <p class="countdown-digit"></p>
                     <p class="countdown-unit">{{minutes}}</p>
                 </div>
                 <div class="countdown-seconds">
-                    <p class="countdown-digit">{{seconds}}</p>
+                    <p class="countdown-digit"></p>
                     <p class="countdown-unit">{{seconds}}</p>
                 </div>
             </div>
@@ -85,12 +89,8 @@
                         class="link"
                         target="_blank"
                         href="https://www.google.com/maps/place/Brewhouse+%26+Kitchen/@52.9381668,-1.1398016,17z/data=!4m13!1m7!3m6!1s0x4879c3cf4afb430f:0x32282e606c9fb1c3!2sNottingham+NG2+2GS!3b1!8m2!3d52.9382672!4d-1.1375718!3m4!1s0x0:0x70a00ccd29706374!8m2!3d52.9386758!4d-1.137602"
-                        {{infoWhereAddress}}
                     >
-                        Brewhouse and Kitchen<br />
-                        Trent Bridge<br />
-                        Nottingham<br />
-                        NG2 2GS
+                        {{infoWhereAddress}}
                     </a>
                 </p>
                 <div class="info-details-events">
@@ -101,7 +101,7 @@
                             <img src="{{assetsPosition}}/assets/hearts1.png" />
                             <img src="{{assetsPosition}}/assets/hearts2.png" />
                         </p>
-                        <p class="info-details-event-time">14:30</p>
+                        <p class="info-details-event-time">12:30</p>
                         <p class="info-details-event-what">{{infoCeremony}}</p>
                         <p class="info-details-event-what-sub">
                             {{infoCeremonyDescription}}
@@ -114,7 +114,7 @@
                             <img src="{{assetsPosition}}/assets/burger1.png" />
                             <img src="{{assetsPosition}}/assets/burger2.png" />
                         </p>
-                        <p class="info-details-event-time">17:00</p>
+                        <p class="info-details-event-time">14:30</p>
                         <p class="info-details-event-what">{{infoReception}}</p>
                         <p class="info-details-event-what-sub">
                             {{infoReceptionDescription}}
@@ -127,7 +127,7 @@
                             <img src="{{assetsPosition}}/assets/party1.png" />
                             <img src="{{assetsPosition}}/assets/party2.png" />
                         </p>
-                        <p class="info-details-event-time">19:00</p>
+                        <p class="info-details-event-time">17:00</p>
                         <p class="info-details-event-what">{{infoParty}}</p>
                         <p class="info-details-event-what-sub">
                             {{infoPartyDescription}}
@@ -143,7 +143,7 @@
             <h2 class="accommodation-header-get">{{howToGetThere}}</h2>
             <div class="accommodation-place-container">
                 <div class="accommodation-place-img-container">
-                    <img src="{{assetsPosition}}/assets/collage.jpg" />
+                    <img src="{{assetsPosition}}/assets/garden.jpg" />
                 </div>
                 <div class="accommodation-place-description">
                     {{accommodationDescription}}
@@ -188,20 +188,45 @@
             <h2 class="registry-header">{{registryTitle}}</h2>
             <div class="registry-description">
                 <p class="registry-description-1">{{registryDescription}}</p>
-                <span class="registry-description-number">
-                    IB<span class="text-dirt">dirt</span>AN GB33H<span
-                        class="text-dirt"
-                        >dirt</span
-                    >BUK4<span class="text-dirt">dirt</span>03518<span
-                        class="text-dirt"
-                        >dirt</span
-                    >04865<span class="text-dirt">dirt</span>219
-                </span>
                 <p class="registry-description-2">{{registryThanks}}</p>
                 <div class="registry-image-container">
                     <img src="{{assetsPosition}}/assets/registry.png" />
                 </div>
             </div>
         </section>
+
+        <script type="text/javascript">
+            document.addEventListener("DOMContentLoaded", function () {
+                const target = new Date("2025-08-16T12:30:00Z");
+                const days = document.querySelector(
+                    ".countdown-days .countdown-digit",
+                );
+                const hours = document.querySelector(
+                    ".countdown-hours .countdown-digit",
+                );
+                const minutes = document.querySelector(
+                    ".countdown-minutes .countdown-digit",
+                );
+                const seconds = document.querySelector(
+                    ".countdown-seconds .countdown-digit",
+                );
+
+                function updateCountdown() {
+                    const now = new Date();
+                    const diff = target - now;
+                    const diffSeconds = Math.floor(diff / 1000);
+                    const diffMinutes = Math.floor(diffSeconds / 60);
+                    const diffHours = Math.floor(diffMinutes / 60);
+                    const diffDays = Math.floor(diffHours / 24);
+                    days.textContent = diffDays;
+                    hours.textContent = diffHours % 24;
+                    minutes.textContent = diffMinutes % 60;
+                    seconds.textContent = diffSeconds % 60;
+                }
+
+                updateCountdown();
+                setInterval(updateCountdown, 1000);
+            });
+        </script>
     </body>
 </html>

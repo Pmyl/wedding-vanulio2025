@@ -4,7 +4,8 @@ use std::io::Write;
 use tera::{Context, Tera};
 
 fn main() {
-    let tera = Tera::new("templates/*.html").unwrap();
+    let mut tera = Tera::new("templates/*.html").unwrap();
+    tera.autoescape_on(vec![]);
 
     let mut translations_json = serde_json::from_str::<HashMap<&str, serde_json::Value>>(
         include_str!("templates/context.json"),
