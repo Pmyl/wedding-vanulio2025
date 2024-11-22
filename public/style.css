@@ -51,15 +51,15 @@ body {
     --greenColorTransparent: rgb(164, 215, 155, 0.5);
     --textColor: #464646;
     --color1: #ffe2bb;
-    --color1Transparent: #ffe2bbf0;
+    --color1Transparent: #ffe2bb80;
     --color2: #f49bb9;
-    --color2Transparent: #f49bb9f0;
+    --color2Transparent: #f49bb980;
     --color3: #a1d3dc;
-    --color3Transparent: #a1d3dcf0;
+    --color3Transparent: #a1d3dc80;
     --color4: #c2dcad;
-    --color4Transparent: #c2dcadf0;
+    --color4Transparent: #c2dcad80;
     --color5: #b8d779;
-    --color5Transparent: #b8d779f0;
+    --color5Transparent: #b8d77980;
 
     margin: 0;
     background-color: #eee;
