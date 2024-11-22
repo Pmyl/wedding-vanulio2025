@@ -449,8 +449,9 @@ body {
     .accommodation-place-container
     .accommodation-place-img-container
     img {
-    width: auto;
-    height: 400px;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 .accommodation .accommodation-place-container .accommodation-place-description {
