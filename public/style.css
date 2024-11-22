@@ -1,8 +1,3 @@
-@font-face {
-    font-family: sifonnFont;
-    src: url(assets/SIFONN_PRO.woff);
-}
-
 .link {
     color: inherit;
 
@@ -17,6 +12,38 @@
     width: 0;
     overflow: hidden;
     display: inline-block;
+}
+
+.two-images-swap-animation {
+    position: relative;
+}
+
+.two-images-swap-animation img {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    animation: swap 1s infinite steps(1);
+    transform: translateX(-50%);
+}
+
+.two-images-swap-animation img:nth-child(1) {
+    animation-delay: 0s;
+}
+
+.two-images-swap-animation img:nth-child(2) {
+    animation-delay: 0.5s;
+}
+
+@keyframes swap {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+    }
 }
 
 body {
@@ -39,39 +66,38 @@ body {
     width: 100%;
 }
 
-.married-box {
+.married .married-box {
     margin: 20px 0 0;
     text-align: center;
 }
 
-.married-names-img {
+.married .married-box .married-names-img {
     display: none;
 }
 
-.married-names-img-small {
+.married .married-box .married-names-img-small {
     max-width: 212px;
 }
 
-@media (min-width: 768px) {
-    .married-names-img-small {
+@media only screen and (min-width: 649px) {
+    .married .married-box .married-names-img-small {
         display: none;
     }
-
-    .married-names-img {
+    .married .married-box .married-names-img {
         display: initial;
         max-width: 549px;
     }
 }
 
-.married-names {
-    font-family: "SifonnFont", "Arial", serif;
+.married .married-box .married-names {
+    font-family: sifonnFont, "Arial", serif;
     padding: 0;
     margin: 0;
     text-transform: uppercase;
     font-size: 3em;
 }
 
-.married-title {
+.married .married-box .married-title {
     font-style: italic;
     font-size: 1.6em;
     padding: 0;
@@ -79,7 +105,7 @@ body {
     text-transform: uppercase;
 }
 
-.married-polaroid-container {
+.married .married-polaroid-container {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -88,14 +114,14 @@ body {
     position: relative;
 }
 
-.married-polaroid-banner {
+.married .married-polaroid-container .married-polaroid-banner {
     background-color: var(--greenColor);
     width: 100%;
     height: 80%;
     position: absolute;
 }
 
-.married-polaroid {
+.married .married-polaroid-container .married-polaroid {
     margin-top: 40px;
     transform: rotateZ(-10deg);
     background-color: white;
@@ -107,7 +133,7 @@ body {
     box-shadow: 10px 10px 5px 0 rgba(0, 0, 0, 0.25);
 }
 
-.married-polaroid-frame {
+.married .married-polaroid-container .married-polaroid .married-polaroid-frame {
     background-color: #d0d0d0;
     height: 300px;
     width: 300px;
@@ -116,26 +142,33 @@ body {
     justify-content: center;
 }
 
-.married-polaroid-frame-image {
+.married
+    .married-polaroid-container
+    .married-polaroid
+    .married-polaroid-frame
+    .married-polaroid-frame-image {
     height: 260px;
 }
 
-.married-polaroid-save-date {
+.married
+    .married-polaroid-container
+    .married-polaroid
+    .married-polaroid-save-date {
     padding: 0;
     margin: 5px;
     text-transform: uppercase;
     font-size: 1.2em;
 }
 
-.married-polaroid-date {
+.married .married-polaroid-container .married-polaroid .married-polaroid-date {
     padding: 0;
     margin: 0 0 5px 0;
     font-size: 28px;
     font-weight: bold;
 }
 
-@media (min-width: 768px) {
-    .married-polaroid-container .married-polaroid-banner {
+@media only screen and (min-width: 649px) {
+    .married .married-polaroid-container .married-polaroid-banner {
         background-image: linear-gradient(
             to right,
             var(--greenColorTransparent),
@@ -150,7 +183,7 @@ body {
     width: 100%;
 }
 
-.countdown-title {
+.countdown .countdown-title {
     text-align: center;
     font-size: 1.4em;
     margin-bottom: 10px;
@@ -159,46 +192,49 @@ body {
     font-style: italic;
 }
 
-.countdown-time {
+.countdown .countdown-time {
     margin: 0 auto;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
 }
 
-.countdown-days,
-.countdown-hours,
-.countdown-minutes,
-.countdown-seconds {
+.countdown .countdown-time .countdown-days,
+.countdown .countdown-time .countdown-hours,
+.countdown .countdown-time .countdown-minutes,
+.countdown .countdown-time .countdown-seconds {
     padding: 0 0 20px 0;
     flex-basis: 50%;
 }
 
-.countdown-digit {
+.countdown .countdown-time .countdown-days .countdown-digit,
+.countdown .countdown-time .countdown-hours .countdown-digit,
+.countdown .countdown-time .countdown-minutes .countdown-digit,
+.countdown .countdown-time .countdown-seconds .countdown-digit {
     margin: 0;
     font-size: 2.8em;
     text-align: center;
 }
 
-.countdown-unit {
+.countdown .countdown-time .countdown-days .countdown-unit,
+.countdown .countdown-time .countdown-hours .countdown-unit,
+.countdown .countdown-time .countdown-minutes .countdown-unit,
+.countdown .countdown-time .countdown-seconds .countdown-unit {
     margin: 0;
     font-size: 0.8em;
     text-align: center;
 }
 
-@media (min-width: 768px) {
-    .countdown-title {
+@media only screen and (min-width: 649px) {
+    .countdown .countdown-title {
         font-size: 2em;
     }
-
-    .countdown-time {
-        .countdown-days,
-        .countdown-hours,
-        .countdown-minutes,
-        .countdown-seconds {
-            padding: 0 50px 0 50px;
-            flex-basis: auto;
-        }
+    .countdown .countdown-time .countdown-days,
+    .countdown .countdown-time .countdown-hours,
+    .countdown .countdown-time .countdown-minutes,
+    .countdown .countdown-time .countdown-seconds {
+        padding: 0 50px 0 50px;
+        flex-basis: auto;
     }
 }
 
@@ -210,7 +246,7 @@ body {
     width: 100%;
 }
 
-@media (min-width: 768px) {
+@media only screen and (min-width: 649px) {
     .section-divider {
         background-image: linear-gradient(
             to right,
@@ -230,101 +266,138 @@ body {
     flex-direction: column-reverse;
 }
 
-.info-image-container {
+.info .info-image-container {
     margin-top: 50px;
     width: 350px;
 }
 
-.info-image-container img {
+.info .info-image-container .info-image {
     width: 100%;
     height: auto;
 }
 
-.info-details .info-details-when,
-.info-details .info-details-where-pre {
+.info .info-details .info-details-when {
     text-align: center;
+    font-size: 1.8em;
     margin: 0;
 }
 
-.info-details-when {
-    font-size: 1.8em;
-}
-
-.info-details-where-pre {
+.info .info-details .info-details-where-pre {
+    text-align: center;
     font-size: 1em;
+    margin: 0;
 }
 
-.info-details-where {
+.info .info-details .info-details-where {
     text-align: center;
     font-size: 2em;
     margin: 18px 0 0;
 }
 
-.info-details-where-sub {
+.info .info-details .info-details-where-sub {
     margin: 0;
     text-align: center;
 }
 
-.info-details-events {
+.info .info-details .info-details-events {
     margin-top: 20px;
     display: flex;
     justify-content: space-between;
 }
 
-.info-details-event {
-    &:not(:last-of-type) {
-        padding-right: 20px;
-    }
-
-    &:not(:first-of-type) {
-        margin-left: 20px;
-    }
+.info
+    .info-details
+    .info-details-events
+    .info-details-event:not(:last-of-type) {
+    padding-right: 20px;
 }
 
-.info-details-event-img {
+.info
+    .info-details
+    .info-details-events
+    .info-details-event:not(:first-of-type) {
+    margin-left: 20px;
+}
+
+.info
+    .info-details
+    .info-details-events
+    .info-details-event
+    .info-details-event-img {
     text-align: center;
     margin: 0 0 10px;
 }
 
-.info-details-event-img img {
+.info
+    .info-details
+    .info-details-events
+    .info-details-event
+    .info-details-event-img
+    img {
     width: 50px;
     height: 50px;
 }
 
-.info-details-event-time,
-.info-details-event-what,
-.info-details-event-what-sub {
+.info
+    .info-details
+    .info-details-events
+    .info-details-event
+    .info-details-event-img {
+    height: 50px;
+}
+
+.info
+    .info-details
+    .info-details-events
+    .info-details-event
+    .info-details-event-time,
+.info
+    .info-details
+    .info-details-events
+    .info-details-event
+    .info-details-event-what {
+    margin: 0;
     text-align: center;
 }
 
-.info-details-event-when {
+.info
+    .info-details
+    .info-details-events
+    .info-details-event
+    .info-details-event-when {
     font-size: 1.2em;
 }
 
-.info-details-event-what {
+.info
+    .info-details
+    .info-details-events
+    .info-details-event
+    .info-details-event-what {
     font-size: 1.2em;
     font-style: italic;
 }
 
-.info-details-event-what-sub {
+.info
+    .info-details
+    .info-details-events
+    .info-details-event
+    .info-details-event-what-sub {
     margin: 5px 0 0;
+    text-align: center;
     font-size: 0.8em;
 }
 
-@media (min-width: 768px) {
+@media only screen and (min-width: 649px) {
     .info {
         flex-direction: row;
     }
-
-    .info-details {
+    .info .info-details {
         margin-left: 10%;
     }
-
-    .info-image-container {
+    .info .info-image-container {
         margin-top: 0;
     }
-
-    .info-details-events {
+    .info .info-details-events {
         margin-top: 60px;
     }
 }
@@ -335,140 +408,174 @@ body {
     width: 100%;
 }
 
-.accommodation-header-get {
+.accommodation .accommodation-header-get {
     margin-top: 0;
     text-align: center;
     font-size: 2em;
 }
 
-.accommodation-place-container {
+.accommodation .accommodation-place-container {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
 }
 
-.accommodation-place-img-container img {
+.accommodation
+    .accommodation-place-container
+    .accommodation-place-img-container
+    img {
     width: auto;
     height: 400px;
 }
 
-.accommodation-place-description {
+.accommodation .accommodation-place-container .accommodation-place-description {
     margin-top: 20px;
 }
 
-.accommodation-header-italy {
+.accommodation .accommodation-header-italy {
     margin-top: 30px;
     text-align: center;
     font-size: 2em;
 }
 
-.accommodation-routes-container {
+.accommodation .accommodation-routes-container {
     display: flex;
     flex-wrap: wrap;
 }
 
-.accommodation-left-img,
-.accommodation-right-img {
+.accommodation .accommodation-routes-container .accommodation-left-img,
+.accommodation .accommodation-routes-container .accommodation-right-img {
     height: 100%;
     width: auto;
     margin: 0 -20px;
 }
 
-.accommodation-left-img img {
+.accommodation .accommodation-routes-container .accommodation-left-img img,
+.accommodation .accommodation-routes-container .accommodation-right-img img {
+    height: 200px;
+}
+
+.accommodation .accommodation-routes-container .accommodation-left-img {
+    overflow-x: hidden;
+    flex: 1;
+}
+
+.accommodation .accommodation-routes-container .accommodation-left-img img {
     transform: translateX(-10%);
 }
 
-.accommodation-right-img {
+.accommodation .accommodation-routes-container .accommodation-right-img {
     flex-basis: 50%;
     text-align: right;
     padding-right: 10px;
 }
 
-.accommodation-ema-route,
-.accommodation-london-route {
+.accommodation .accommodation-routes-container .accommodation-ema-route {
+    margin-top: 10px;
+}
+
+.accommodation .accommodation-routes-container .accommodation-london-route {
+    margin-top: 20px;
+}
+
+.accommodation .accommodation-routes-container .accommodation-ema-route,
+.accommodation .accommodation-routes-container .accommodation-london-route {
     box-sizing: border-box;
     flex: 1 0 100%;
 }
 
-.accommodation-ema-route-intro,
-.accommodation-london-route-intro {
+.accommodation .accommodation-routes-container .accommodation-ema-route-intro,
+.accommodation
+    .accommodation-routes-container
+    .accommodation-london-route-intro {
     text-align: center;
     margin: 0;
 }
 
-.accommodation-ema-route-details,
-.accommodation-london-route-details {
+.accommodation .accommodation-routes-container .accommodation-ema-route-details,
+.accommodation
+    .accommodation-routes-container
+    .accommodation-london-route-details {
     margin: 5px 0 0;
 }
 
-.accommodation-stay {
+.accommodation .accommodation-stay {
     margin-top: 20px;
 }
 
-.accommodation-stay-separator {
+.accommodation .accommodation-stay .accommodation-stay-separator {
     border-top: 1px solid var(--textColor);
     border-bottom: 0;
     width: 50%;
     margin-bottom: 15px;
 }
 
-@media (min-width: 768px) {
-    .accommodation-routes-container .accommodation-left-img {
+@media only screen and (min-width: 649px) {
+    .accommodation .accommodation-routes-container .accommodation-left-img {
         flex: 1 0 0;
     }
 
-    .accommodation-routes-container .accommodation-right-img {
+    .accommodation .accommodation-routes-container .accommodation-left-img img {
+        transform: none;
+    }
+
+    .accommodation .accommodation-routes-container .accommodation-right-img {
         flex-basis: 0;
     }
 }
 
-@media (min-width: 1024px) {
-    .accommodation-place-container {
+@media only screen and (min-width: 1199px) {
+    .accommodation .accommodation-place-container {
         align-items: center;
         flex-wrap: nowrap;
         padding: 0 15%;
     }
 
-    .accommodation-place-description {
+    .accommodation
+        .accommodation-place-container
+        .accommodation-place-description {
         padding: 0 50px;
     }
-
-    .accommodation-routes-container {
+    .accommodation .accommodation-routes-container {
         flex-wrap: nowrap;
     }
 
-    .accommodation-left-img {
+    .accommodation .accommodation-routes-container .accommodation-left-img {
         flex: 1 1 0;
         order: 1;
+        overflow-x: hidden;
+        margin: 0 0 0 -20px;
         width: 210px;
         max-width: 210px;
         min-width: 210px;
     }
 
-    .accommodation-right-img {
+    .accommodation .accommodation-routes-container .accommodation-left-img img {
+        transform: translateX(-10%);
+    }
+
+    .accommodation .accommodation-routes-container .accommodation-right-img {
         flex: 0 1 0;
         order: 4;
         margin: 0;
     }
 
-    .accommodation-ema-route {
+    .accommodation .accommodation-routes-container .accommodation-ema-route {
         flex: 1 1 0;
         order: 2;
         margin: 0 10px;
     }
 
-    .accommodation-london-route {
+    .accommodation .accommodation-routes-container .accommodation-london-route {
         flex: 1 1 0;
         order: 3;
         margin: 0 10px;
     }
-
-    .accommodation-stay .accommodation-stay-separator {
-        display: none;
-    }
-
-    .accommodation-stay {
+    .accommodation .accommodation-stay {
         margin: 20px 40px 0;
+    }
+    .accommodation .accommodation-stay .accommodation-stay-separator {
+        display: none;
     }
 }
 
@@ -478,21 +585,21 @@ body {
     margin: 0 auto;
 }
 
-.registry-header {
+.registry .registry-header {
     margin: 0;
     text-align: center;
     font-size: 2em;
 }
 
-.registry-description-2 {
+.registry .registry-description-2 {
     text-align: center;
     font-size: 1.3em;
 }
 
-.registry-image-container {
+.registry .registry-image-container {
     text-align: center;
 }
 
-.registry-image-container img {
+.registry .registry-image-container img {
     max-width: 100%;
 }
