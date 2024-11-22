@@ -2,5 +2,3 @@
 /templating/target
 .vercel
 .env.development.local
-/public/index.html
-/public/it/index.html
