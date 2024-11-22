@@ -7,7 +7,7 @@ fn main() {
     let tera = Tera::new("templates/*.html").unwrap();
 
     let mut translations_json = serde_json::from_str::<HashMap<&str, serde_json::Value>>(
-        include_str!("templates/translations.json"),
+        include_str!("templates/context.json"),
     )
     .unwrap();
 

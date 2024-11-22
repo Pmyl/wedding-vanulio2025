@@ -1,0 +1,498 @@
+@font-face {
+    font-family: sifonnFont;
+    src: url(assets/SIFONN_PRO.woff);
+}
+
+.link {
+    color: inherit;
+
+    &:hover {
+        color: darkblue;
+    }
+}
+
+.text-dirt {
+    user-select: none;
+    height: 0;
+    width: 0;
+    overflow: hidden;
+    display: inline-block;
+}
+
+body {
+    --greenColor: #a4d79b;
+    --greenColorTransparent: rgb(164, 215, 155, 0.5);
+    --textColor: #464646;
+
+    margin: 0;
+    background-color: #eeeeee;
+    font-family: "Roboto", sans-serif;
+    overflow-x: hidden;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: var(--textColor);
+}
+
+.married {
+    width: 100%;
+}
+
+.married-box {
+    margin: 20px 0 0;
+    text-align: center;
+}
+
+.married-names-img {
+    display: none;
+}
+
+.married-names-img-small {
+    max-width: 212px;
+}
+
+@media (min-width: 768px) {
+    .married-names-img-small {
+        display: none;
+    }
+
+    .married-names-img {
+        display: initial;
+        max-width: 549px;
+    }
+}
+
+.married-names {
+    font-family: "SifonnFont", "Arial", serif;
+    padding: 0;
+    margin: 0;
+    text-transform: uppercase;
+    font-size: 3em;
+}
+
+.married-title {
+    font-style: italic;
+    font-size: 1.6em;
+    padding: 0;
+    margin: 10px 0 0;
+    text-transform: uppercase;
+}
+
+.married-polaroid-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 40px;
+    position: relative;
+}
+
+.married-polaroid-banner {
+    background-color: var(--greenColor);
+    width: 100%;
+    height: 80%;
+    position: absolute;
+}
+
+.married-polaroid {
+    margin-top: 40px;
+    transform: rotateZ(-10deg);
+    background-color: white;
+    padding: 20px 30px 0 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 10px 10px 5px 0 rgba(0, 0, 0, 0.25);
+}
+
+.married-polaroid-frame {
+    background-color: #d0d0d0;
+    height: 300px;
+    width: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.married-polaroid-frame-image {
+    height: 260px;
+}
+
+.married-polaroid-save-date {
+    padding: 0;
+    margin: 5px;
+    text-transform: uppercase;
+    font-size: 1.2em;
+}
+
+.married-polaroid-date {
+    padding: 0;
+    margin: 0 0 5px 0;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+@media (min-width: 768px) {
+    .married-polaroid-container .married-polaroid-banner {
+        background-image: linear-gradient(
+            to right,
+            var(--greenColorTransparent),
+            var(--greenColor),
+            var(--greenColorTransparent)
+        );
+        background-color: transparent;
+    }
+}
+
+.countdown {
+    width: 100%;
+}
+
+.countdown-title {
+    text-align: center;
+    font-size: 1.4em;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    padding: 0 20px;
+    font-style: italic;
+}
+
+.countdown-time {
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.countdown-days,
+.countdown-hours,
+.countdown-minutes,
+.countdown-seconds {
+    padding: 0 0 20px 0;
+    flex-basis: 50%;
+}
+
+.countdown-digit {
+    margin: 0;
+    font-size: 2.8em;
+    text-align: center;
+}
+
+.countdown-unit {
+    margin: 0;
+    font-size: 0.8em;
+    text-align: center;
+}
+
+@media (min-width: 768px) {
+    .countdown-title {
+        font-size: 2em;
+    }
+
+    .countdown-time {
+        .countdown-days,
+        .countdown-hours,
+        .countdown-minutes,
+        .countdown-seconds {
+            padding: 0 50px 0 50px;
+            flex-basis: auto;
+        }
+    }
+}
+
+.section-divider {
+    background-color: var(--greenColor);
+    border: none;
+    margin: 25px 0;
+    height: 80px;
+    width: 100%;
+}
+
+@media (min-width: 768px) {
+    .section-divider {
+        background-image: linear-gradient(
+            to right,
+            var(--greenColorTransparent),
+            var(--greenColor),
+            var(--greenColorTransparent)
+        );
+        background-color: transparent;
+    }
+}
+
+.info {
+    width: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column-reverse;
+}
+
+.info-image-container {
+    margin-top: 50px;
+    width: 350px;
+}
+
+.info-image-container img {
+    width: 100%;
+    height: auto;
+}
+
+.info-details .info-details-when,
+.info-details .info-details-where-pre {
+    text-align: center;
+    margin: 0;
+}
+
+.info-details-when {
+    font-size: 1.8em;
+}
+
+.info-details-where-pre {
+    font-size: 1em;
+}
+
+.info-details-where {
+    text-align: center;
+    font-size: 2em;
+    margin: 18px 0 0;
+}
+
+.info-details-where-sub {
+    margin: 0;
+    text-align: center;
+}
+
+.info-details-events {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.info-details-event {
+    &:not(:last-of-type) {
+        padding-right: 20px;
+    }
+
+    &:not(:first-of-type) {
+        margin-left: 20px;
+    }
+}
+
+.info-details-event-img {
+    text-align: center;
+    margin: 0 0 10px;
+}
+
+.info-details-event-img img {
+    width: 50px;
+    height: 50px;
+}
+
+.info-details-event-time,
+.info-details-event-what,
+.info-details-event-what-sub {
+    text-align: center;
+}
+
+.info-details-event-when {
+    font-size: 1.2em;
+}
+
+.info-details-event-what {
+    font-size: 1.2em;
+    font-style: italic;
+}
+
+.info-details-event-what-sub {
+    margin: 5px 0 0;
+    font-size: 0.8em;
+}
+
+@media (min-width: 768px) {
+    .info {
+        flex-direction: row;
+    }
+
+    .info-details {
+        margin-left: 10%;
+    }
+
+    .info-image-container {
+        margin-top: 0;
+    }
+
+    .info-details-events {
+        margin-top: 60px;
+    }
+}
+
+.accommodation {
+    padding: 0 20px;
+    box-sizing: border-box;
+    width: 100%;
+}
+
+.accommodation-header-get {
+    margin-top: 0;
+    text-align: center;
+    font-size: 2em;
+}
+
+.accommodation-place-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.accommodation-place-img-container img {
+    width: auto;
+    height: 400px;
+}
+
+.accommodation-place-description {
+    margin-top: 20px;
+}
+
+.accommodation-header-italy {
+    margin-top: 30px;
+    text-align: center;
+    font-size: 2em;
+}
+
+.accommodation-routes-container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.accommodation-left-img,
+.accommodation-right-img {
+    height: 100%;
+    width: auto;
+    margin: 0 -20px;
+}
+
+.accommodation-left-img img {
+    transform: translateX(-10%);
+}
+
+.accommodation-right-img {
+    flex-basis: 50%;
+    text-align: right;
+    padding-right: 10px;
+}
+
+.accommodation-ema-route,
+.accommodation-london-route {
+    box-sizing: border-box;
+    flex: 1 0 100%;
+}
+
+.accommodation-ema-route-intro,
+.accommodation-london-route-intro {
+    text-align: center;
+    margin: 0;
+}
+
+.accommodation-ema-route-details,
+.accommodation-london-route-details {
+    margin: 5px 0 0;
+}
+
+.accommodation-stay {
+    margin-top: 20px;
+}
+
+.accommodation-stay-separator {
+    border-top: 1px solid var(--textColor);
+    border-bottom: 0;
+    width: 50%;
+    margin-bottom: 15px;
+}
+
+@media (min-width: 768px) {
+    .accommodation-routes-container .accommodation-left-img {
+        flex: 1 0 0;
+    }
+
+    .accommodation-routes-container .accommodation-right-img {
+        flex-basis: 0;
+    }
+}
+
+@media (min-width: 1024px) {
+    .accommodation-place-container {
+        align-items: center;
+        flex-wrap: nowrap;
+        padding: 0 15%;
+    }
+
+    .accommodation-place-description {
+        padding: 0 50px;
+    }
+
+    .accommodation-routes-container {
+        flex-wrap: nowrap;
+    }
+
+    .accommodation-left-img {
+        flex: 1 1 0;
+        order: 1;
+        width: 210px;
+        max-width: 210px;
+        min-width: 210px;
+    }
+
+    .accommodation-right-img {
+        flex: 0 1 0;
+        order: 4;
+        margin: 0;
+    }
+
+    .accommodation-ema-route {
+        flex: 1 1 0;
+        order: 2;
+        margin: 0 10px;
+    }
+
+    .accommodation-london-route {
+        flex: 1 1 0;
+        order: 3;
+        margin: 0 10px;
+    }
+
+    .accommodation-stay .accommodation-stay-separator {
+        display: none;
+    }
+
+    .accommodation-stay {
+        margin: 20px 40px 0;
+    }
+}
+
+.registry {
+    padding: 0 20px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.registry-header {
+    margin: 0;
+    text-align: center;
+    font-size: 2em;
+}
+
+.registry-description-2 {
+    text-align: center;
+    font-size: 1.3em;
+}
+
+.registry-image-container {
+    text-align: center;
+}
+
+.registry-image-container img {
+    max-width: 100%;
+}

@@ -1,7 +1,183 @@
 <html>
+    <head>
+        <link rel="stylesheet" href="{{css}}" />
+    </head>
     <body>
-        {{ intro.hello }}
-        <img src="./assets/burger1.PNG" />
-        <img src="assets/burger1.PNG" />
+        <section class="married">
+            <div class="married-box">
+                <img
+                    class="married-names-img-small"
+                    src="./assets/title_stack.png"
+                />
+                <img class="married-names-img" src="./assets/title.png" />
+                <p class="married-title">{{marriedSubtitle}}</p>
+            </div>
+
+            <div class="married-polaroid-container">
+                <div class="married-polaroid-banner"></div>
+                <div class="married-polaroid">
+                    <div class="married-polaroid-frame">
+                        <img
+                            class="married-polaroid-frame-image"
+                            src="./assets/heart.png"
+                            alt="heart"
+                        />
+                    </div>
+                    <p class="married-polaroid-save-date">{{saveTheDate}}</p>
+                    <p class="married-polaroid-date">01.09.2020</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="countdown">
+            <p class="countdown-title">{{countdown}}</p>
+            <div class="countdown-time">
+                <div class="countdown-days">
+                    <p class="countdown-digit">{{days}}</p>
+                    <p class="countdown-unit">{{days}}</p>
+                </div>
+                <div class="countdown-hours">
+                    <p class="countdown-digit">{{hours}}</p>
+                    <p class="countdown-unit">{{hours}}</p>
+                </div>
+                <div class="countdown-minutes">
+                    <p class="countdown-digit">{{minutes}}</p>
+                    <p class="countdown-unit">{{minutes}}</p>
+                </div>
+                <div class="countdown-seconds">
+                    <p class="countdown-digit">{{seconds}}</p>
+                    <p class="countdown-unit">{{seconds}}</p>
+                </div>
+            </div>
+        </section>
+
+        <hr class="section-divider" />
+
+        <section class="info">
+            <div class="info-image-container">
+                <img
+                    class="info-image"
+                    src="./assets/in braccio.png"
+                    alt="in braccio"
+                />
+            </div>
+            <div class="info-details">
+                <p class="info-details-when">{{infoWhen}}</p>
+                <p class="info-details-where-pre">{{infoWherePre}}</p>
+                <p class="info-details-where"><strong>{{infoWhere}}</strong></p>
+                <p class="info-details-where-sub">
+                    <a
+                        class="link"
+                        target="_blank"
+                        href="https://www.google.com/maps/place/Brewhouse+%26+Kitchen/@52.9381668,-1.1398016,17z/data=!4m13!1m7!3m6!1s0x4879c3cf4afb430f:0x32282e606c9fb1c3!2sNottingham+NG2+2GS!3b1!8m2!3d52.9382672!4d-1.1375718!3m4!1s0x0:0x70a00ccd29706374!8m2!3d52.9386758!4d-1.137602"
+                        {{infoWhereAddress}}
+                    >
+                        Brewhouse and Kitchen<br />
+                        Trent Bridge<br />
+                        Nottingham<br />
+                        NG2 2GS
+                    </a>
+                </p>
+                <div class="info-details-events">
+                    <div class="info-details-event">
+                        <p class="info-details-event-img">
+                            <img src="./assets/ceremony.png" />
+                        </p>
+                        <p class="info-details-event-time">14:30</p>
+                        <p class="info-details-event-what">{{infoCeremony}}</p>
+                        <p class="info-details-event-what-sub">
+                            {{infoCeremonyDescription}}
+                        </p>
+                    </div>
+                    <div class="info-details-event">
+                        <p class="info-details-event-img">
+                            <img src="./assets/reception.png" />
+                        </p>
+                        <p class="info-details-event-time">17:00</p>
+                        <p class="info-details-event-what">{{infoReception}}</p>
+                        <p class="info-details-event-what-sub">
+                            {{infoReceptionDescription}}
+                        </p>
+                    </div>
+                    <div class="info-details-event">
+                        <p class="info-details-event-img">
+                            <img src="./assets/party.png" />
+                        </p>
+                        <p class="info-details-event-time">19:00</p>
+                        <p class="info-details-event-what">{{infoParty}}</p>
+                        <p class="info-details-event-what-sub">
+                            {{infoPartyDescription}}
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <hr class="section-divider" />
+
+        <section class="accommodation">
+            <h2 class="accommodation-header-get">{{howToGetThere}}</h2>
+            <div class="accommodation-place-container">
+                <div class="accommodation-place-img-container">
+                    <img src="./assets/collage.jpg" />
+                </div>
+                <div class="accommodation-place-description">
+                    {{accommodationDescription}}
+                </div>
+            </div>
+            <h2 class="accommodation-header-italy">
+                {{accommodationFromItaly}}
+            </h2>
+            <div class="accommodation-routes-container">
+                <div class="accommodation-left-img">
+                    <img src="./assets/howtoget2.png" />
+                </div>
+                <div class="accommodation-right-img">
+                    <img src="./assets/howtoget1.png" />
+                </div>
+                <div class="accommodation-ema-route">
+                    <p class="accommodation-ema-route-intro">
+                        <strong>{{nottinghamRoute}}</strong>
+                    </p>
+                    <p class="accommodation-ema-route-details">
+                        {{nottinghamRouteDescription}}
+                    </p>
+                </div>
+                <div class="accommodation-london-route">
+                    <p class="accommodation-london-route-intro">
+                        <strong>{{londonRoute}}</strong>
+                    </p>
+                    <p class="accommodation-london-route-details">
+                        {{londonRouteDescription}}
+                    </p>
+                </div>
+            </div>
+            <div class="accommodation-stay">
+                <hr class="accommodation-stay-separator" />
+                {{accommodationStay}}
+            </div>
+        </section>
+
+        <hr class="section-divider" />
+
+        <section class="registry">
+            <h2 class="registry-header">{{registryTitle}}</h2>
+            <div class="registry-description">
+                <p class="registry-description-1">{{registryDescription}}</p>
+                <span class="registry-description-number">
+                    IB<span class="text-dirt">dirt</span>AN GB33H<span
+                        class="text-dirt"
+                        >dirt</span
+                    >BUK4<span class="text-dirt">dirt</span>03518<span
+                        class="text-dirt"
+                        >dirt</span
+                    >04865<span class="text-dirt">dirt</span>219
+                </span>
+                <p class="registry-description-2">{{registryThanks}}</p>
+                <div class="registry-image-container">
+                    <img src="./assets/registry.png" />
+                </div>
+            </div>
+        </section>
     </body>
 </html>
