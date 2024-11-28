@@ -38,6 +38,13 @@ pub async fn handler(req: Request) -> Result<Response<Body>, Error> {
         },
     };
 
+    if invite.responded {
+        return Ok(Response::builder()
+            .status(StatusCode::BAD_REQUEST)
+            .header("Content-Type", "text/html")
+            .body("Already responded".into())?);
+    }
+
     invite.attending = Some(true);
     invite.responded = true;
     invite.guests = request.guests;

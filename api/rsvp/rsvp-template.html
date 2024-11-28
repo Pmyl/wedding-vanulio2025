@@ -34,17 +34,29 @@
             <div class="rsvp-choice-container">
                 {% if not responded or attending %}
                 <button
-                    class="rsvp-choice-button"
+                    class="rsvp-choice-button{% if responded %} rsvp-choice-button-selected{% endif %}"
                     onclick="(document.getElementById('attending').classList.remove('hidden'),document.getElementById('not-attending').classList.add('hidden'))"
                 >
-                    {{ attendingButton }}
+                    <img
+                        class="rsvp-choice-button-heart"
+                        src="rsvp/assets/fullheart.png"
+                    />
+                    <span class="rsvp-choice-button-text"
+                        >{{ attendingButton }}</span
+                    >
                 </button>
                 {% endif %} {% if not responded or not attending %}
                 <button
-                    class="rsvp-choice-button"
+                    class="rsvp-choice-button{% if responded %} rsvp-choice-button-selected{% endif %}"
                     onclick="(document.getElementById('attending').classList.add('hidden'),document.getElementById('not-attending').classList.remove('hidden'))"
                 >
-                    {{ notAttending }}
+                    <img
+                        class="rsvp-choice-button-heart"
+                        src="rsvp/assets/emptyheart.png"
+                    />
+                    <span class="rsvp-choice-button-text"
+                        >{{ notAttending }}</span
+                    >
                 </button>
                 {% endif %}
             </div>

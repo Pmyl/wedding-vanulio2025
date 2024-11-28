@@ -110,7 +110,7 @@ impl Invite {
         let invite_compressed = blob_client
             .download(&blobs.blobs[0].url, DownloadCommandOptions::default())
             .await?;
-        println!("Invite compressed downloaded");
+        println!("Invite downloaded");
 
         let invite: Invite = serde_json::from_reader(invite_compressed.reader())?;
         println!("Invite deserialized");
