@@ -12,6 +12,7 @@ vercel_runtime = "1.1.0"
 vercel_blob = "0.1.0"
 url = "2.5.4"
 bytes = "1.8.0"
+mail-send = "0.4.9"
 
 [build-dependencies]
 tera = "1.20.0"

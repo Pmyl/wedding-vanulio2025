@@ -56,6 +56,7 @@ pub async fn handler(req: Request) -> Result<Response<Body>, Error> {
     };
 
     invite.update_in_blob(&id).await?;
+    invite.notify().await?;
 
     Ok(Response::builder().status(StatusCode::OK).body(().into())?)
 }

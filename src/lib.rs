@@ -1,7 +1,7 @@
-use std::error::Error;
-
 use bytes::Buf;
+use mail_send::{mail_builder::MessageBuilder, SmtpClientBuilder};
 use serde::{Deserialize, Serialize};
+use std::{env, error::Error};
 use vercel_blob::{
     client::{
         DelCommandOptions, DownloadCommandOptions, PutCommandOptions, VercelBlobApi,
@@ -116,6 +116,56 @@ impl Invite {
         println!("Invite deserialized");
 
         Ok(invite)
+    }
+
+    pub async fn notify(self) -> Result<(), Box<dyn Error + Send + Sync>> {
+        let Some(attending) = self.attending else {
+            return Err("Invite not responded".into());
+        };
+
+        println!("Sending notification");
+
+        let vanulio_email = env::var("VANULIO_EMAIL").unwrap();
+        let giulio_email = env::var("GIULIO_EMAIL").unwrap();
+        let vanulio_user = env::var("VANULIO_USER").unwrap();
+        let vanulio_password = env::var("VANULIO_PASSWORD").unwrap();
+
+        let mut message = MessageBuilder::new()
+            .from(("Vanulio", vanulio_email.as_ref()))
+            .to(vec![
+                ("Giulio", giulio_email.as_ref()),
+                ("Vanulio", vanulio_email.as_ref()),
+            ]);
+
+        if attending {
+            message = message
+                .subject(format!("YES RSVP {}", self.name))
+                .html_body(format!(
+                    "{} has {} guests attending the wedding.<br />
+                Vegetarians: {}<br />
+                Notes: {}",
+                    self.name,
+                    self.guests,
+                    self.vegetarians,
+                    self.notes.unwrap_or_default()
+                ));
+        } else {
+            message = message
+                .subject(format!("NO RSVP {}", self.name))
+                .html_body(format!("{} has declined the invite :(", self.name));
+        }
+
+        SmtpClientBuilder::new("smtp.gmail.com", 587)
+            .implicit_tls(false)
+            .credentials((vanulio_user.as_ref(), vanulio_password.as_ref()))
+            .connect()
+            .await?
+            .send(message)
+            .await?;
+
+        println!("Notification sent to {}", vanulio_email);
+        println!("Notification sent to {}", giulio_email);
+        Ok(())
     }
 }
 

@@ -14,7 +14,7 @@
             <p class="rsvp-respondez">{{ respondez }}</p>
             <p class="rsvp-time">{{ time }}</p>
             <p class="rsvp-name">
-                {{ name1 }} {{ name }}<br />{% if guests > 1 %} {{ name2 }} {%
+                {{ name1 }} {{ name }}!<br />{% if guests > 1 %} {{ name2 }} {%
                 else %} {{ name2_p }} {% endif %}
             </p>
             <p class="rsvp-date">{{ date }}</p>
@@ -34,8 +34,9 @@
             <div class="rsvp-choice-container">
                 {% if not responded or attending %}
                 <button
+                    id="attending-button"
                     class="rsvp-choice-button{% if responded %} rsvp-choice-button-selected{% endif %}"
-                    onclick="(document.getElementById('attending').classList.remove('hidden'),document.getElementById('not-attending').classList.add('hidden'))"
+                    onclick="selectAttending()"
                 >
                     <img
                         class="rsvp-choice-button-heart"
@@ -47,8 +48,9 @@
                 </button>
                 {% endif %} {% if not responded or not attending %}
                 <button
+                    id="not-attending-button"
                     class="rsvp-choice-button{% if responded %} rsvp-choice-button-selected{% endif %}"
-                    onclick="(document.getElementById('attending').classList.add('hidden'),document.getElementById('not-attending').classList.remove('hidden'))"
+                    onclick="selectNotAttending()"
                 >
                     <img
                         class="rsvp-choice-button-heart"
@@ -92,7 +94,7 @@
                             type="number"
                             min="0"
                             name="vegetarians"
-                            value="0"
+                            value="{{ vegetarians }}"
                             {%
                             if
                             responded
@@ -114,7 +116,9 @@
                             {%
                             endif
                             %}
-                        ></textarea>
+                        >
+{{ notes }}</textarea
+                        >
                     </div>
                     <div class="rsvp-reply-now-container">
                         {% if not responded %}
@@ -163,5 +167,29 @@
         } else {
             document.getElementById("error-message").classList.add("show");
         }
+    }
+
+    function selectAttending() {
+        document.getElementById("attending").classList.remove("hidden");
+        document.getElementById("not-attending").classList.add("hidden");
+
+        document
+            .getElementById("attending-button")
+            .classList.add("rsvp-choice-button-selected");
+        document
+            .getElementById("not-attending-button")
+            .classList.remove("rsvp-choice-button-selected");
+    }
+
+    function selectNotAttending() {
+        document.getElementById("attending").classList.add("hidden");
+        document.getElementById("not-attending").classList.remove("hidden");
+
+        document
+            .getElementById("attending-button")
+            .classList.remove("rsvp-choice-button-selected");
+        document
+            .getElementById("not-attending-button")
+            .classList.add("rsvp-choice-button-selected");
     }
 </script>

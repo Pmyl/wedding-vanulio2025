@@ -44,7 +44,8 @@ pub async fn handler(req: Request) -> Result<Response<Body>, Error> {
 
     invite.attending = Some(false);
     invite.responded = true;
-    invite.update_in_blob(&id).await.expect("test");
+    invite.update_in_blob(&id).await?;
+    invite.notify().await?;
 
     Ok(Response::builder().status(StatusCode::OK).body(().into())?)
 }

@@ -10,9 +10,17 @@
 body {
     padding: 0;
     margin: 0;
-    font-family: "Roboto", sans-serif;
+    font-family: "Josefin Slab", sans-serif;
+    font-size: 1.2em;
+    font-weight: 600;
     height: 100%;
     color: #464646;
+}
+
+@media only screen and (min-width: 649px) {
+    body {
+        font-size: 1.6em;
+    }
 }
 
 html {
@@ -190,6 +198,8 @@ html {
 .rsvp-choice-button {
     filter: grayscale(100%);
     -webkit-filter: grayscale(100%);
+    text-transform: uppercase;
+    padding: 0 10px;
 }
 
 .rsvp-choice-button:not(.rsvp-choice-button-selected) {
@@ -205,6 +215,7 @@ html {
 .rsvp-choice-button.rsvp-choice-button-selected {
     filter: none;
     -webkit-filter: grayscale(0);
+    cursor: initial;
 }
 
 .rsvp-choice-button-heart {
@@ -285,4 +296,9 @@ input::-webkit-inner-spin-button {
 
 input[type="number"] {
     -moz-appearance: textfield;
+}
+
+button {
+    font-family: inherit;
+    font-weight: inherit;
 }

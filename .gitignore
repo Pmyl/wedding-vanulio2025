@@ -1,6 +1,8 @@
 /target
 /templating/target
 .vercel
+.env
+.env.local
 .env.development.local
 /api/invites
 ids.txt

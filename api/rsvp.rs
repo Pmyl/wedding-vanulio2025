@@ -1,5 +1,4 @@
 use std::collections::HashMap;
-
 use tera::{Context, Tera};
 use vercel_runtime::{run, Body, Error, Request, Response, StatusCode};
 use wedding_vanulio2025::{FromBlobError, Invite, InviteId, Language};
