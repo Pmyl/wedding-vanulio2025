@@ -1,0 +1,250 @@
+@keyframes fade-in {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+body {
+    padding: 0;
+    margin: 0;
+    font-family: "Roboto", sans-serif;
+    height: 100%;
+    color: #464646;
+}
+
+html {
+    height: 100%;
+}
+
+.header {
+    background-color: #f49bb9;
+    border: none;
+    margin: 0;
+    height: 80px;
+    width: 100%;
+}
+
+@media only screen and (min-width: 649px) {
+    .header {
+        background-image: linear-gradient(
+            to right,
+            #f49bb980,
+            #f49bb9,
+            #f49bb980
+        );
+        background-color: transparent;
+    }
+}
+
+.link {
+    color: inherit;
+    font-style: italic;
+}
+
+.link:hover {
+    color: darkblue;
+}
+
+.main {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    align-items: center;
+}
+
+.rsvp-card {
+    flex: 1;
+    margin: 20px auto 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.rsvp-card.data-loaded .to-show-when-data {
+    animation-fill-mode: both;
+    animation-name: fade-in;
+    animation-duration: 4s;
+    animation-delay: 0s;
+}
+
+.rsvp-card:not(.data-loaded) .to-show-when-data {
+    opacity: 0;
+}
+
+.rsvp-card .rsvp-card-content {
+    background-color: #eee;
+    box-shadow: 5px 5px 5px 0 rgba(0, 0, 0, 0.25);
+    width: 90%;
+    padding: 10px;
+    text-align: center;
+    position: relative;
+}
+
+@media only screen and (min-width: 1199px) {
+    .rsvp-card .rsvp-card-content {
+        padding: 100px 40px 40px;
+    }
+}
+
+.rsvp-card .rsvp-card-content .rsvp-top-right-image,
+.rsvp-card .rsvp-card-content .rsvp-bottom-left-image {
+    position: absolute;
+    width: 20vw;
+    height: 20vw;
+}
+
+.rsvp-card .rsvp-card-content .rsvp-top-right-image img,
+.rsvp-card .rsvp-card-content .rsvp-bottom-left-image img {
+    width: 20vw;
+    height: 20vw;
+    animation-fill-mode: both;
+    animation-name: fade-in;
+    animation-duration: 4s;
+    animation-delay: 1.5s;
+}
+
+.rsvp-card .rsvp-card-content .rsvp-top-right-image {
+    top: 0;
+    right: 0;
+}
+
+.rsvp-card .rsvp-card-content .rsvp-bottom-left-image {
+    bottom: 0;
+    left: 0;
+}
+
+.rsvp-card .rsvp-card-content .rsvp-bottom-left-image img {
+    transform: rotate(180deg);
+}
+
+.rsvp-card .rsvp-card-content .rsvp-rsvp img {
+    animation-fill-mode: both;
+    animation-name: fade-in;
+    animation-duration: 4s;
+    animation-delay: 0s;
+    width: 30%;
+    min-width: 200px;
+}
+
+.rsvp-card .rsvp-card-content .rsvp-error-message {
+    margin-top: 50px;
+    font-size: 1.2em;
+    color: brown;
+    display: none;
+}
+
+.rsvp-card .rsvp-card-content .rsvp-error-message.show {
+    display: block;
+}
+
+.rsvp-card .rsvp-card-content .rsvp-respondez {
+    margin-top: -5px;
+    padding-top: 0;
+    font-size: 0.9em;
+}
+
+.rsvp-card .rsvp-card-content .rsvp-date {
+    font-size: 1.6em;
+}
+
+.rsvp-card .rsvp-card-content .rsvp-place {
+    font-size: 1.1em;
+    font-weight: 600;
+    margin: 40px 0 0;
+}
+
+.rsvp-card .rsvp-card-content .rsvp-place-address {
+    margin: 0 0 20px;
+}
+
+@media only screen and (min-width: 649px) {
+    .rsvp-card .rsvp-card-content .rsvp-date {
+        font-size: 2em;
+    }
+}
+
+@media only screen and (min-width: 649px) {
+    .rsvp-card .rsvp-card-content .rsvp-place {
+        font-size: 1.5em;
+    }
+}
+
+.rsvp-choice-attending.hidden,
+.rsvp-choice-not-attending.hidden {
+    display: none;
+}
+
+.rsvp-choice-not-attending,
+.rsvp-choice-attending {
+    margin: 20px 0;
+}
+
+.rsvp-reply-now-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.rsvp-reply-now {
+    cursor: pointer;
+
+    background: #a4d79b;
+    color: inherit;
+    border: none;
+    padding: 10px;
+    font: inherit;
+    outline: inherit;
+    border-radius: 5px;
+}
+
+.form-guests label,
+.form-vegetarians label,
+.form-notes label {
+    display: block;
+}
+
+.form-guests input,
+.form-vegetarians input {
+    text-align: center;
+}
+
+.form-notes textarea {
+    width: 70%;
+}
+
+.form-notes {
+    margin-top: 10px;
+}
+
+#error-message {
+    display: none;
+    color: brown;
+}
+
+#error-message.show {
+    display: block;
+}
+
+input[type="number"] {
+    height: 30px;
+}
+
+input,
+textarea {
+    border: 1px solid #f49bb9;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type="number"] {
+    -moz-appearance: textfield;
+}

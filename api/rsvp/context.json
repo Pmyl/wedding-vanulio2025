@@ -1,0 +1,51 @@
+{
+  "it": {
+    "respondez": "- È gradita gentile conferma -",
+    "time": "entro il 10 Maggio 2025",
+    "name1": "Hey ",
+    "name2": "Con nostro grande piacere ti invitiamo al matrimonio 2.0 di Giulio & Vanessa a Nottingham!",
+    "name2_p": "Con nostro grande piacere vi invitiamo al matrimonio 2.0 di Giulio & Vanessa a Nottingham!",
+    "date": "Sabato 16 Agosto 2025",
+    "place": "Il Nostro Giardino di Casa",
+    "visit": "per ulteriori informazioni visita",
+    "website": "il nostro sito web!",
+    "link": "https://vanulio.fun/it/",
+    "attendingButton": "Ci sarò",
+    "notAttending": "Non ci sarò",
+    "sorryNotAttending": "Ci dispiace che non potrai partecipare",
+    "replyNow": "Rispondi ora",
+    "thanksForReplying": "Grazie per aver risposto!",
+    "dietaryRestrictions": "Hai preferenze sul cibo?",
+    "errorMessage": "Per favore, compila tutti i campi. I campi numerici devono contenere solo numeri.",
+    "form": {
+      "guests": "Partecipanti",
+      "vegetarians": "Vegetariani",
+      "notes": "Per favore, scrivi qui eventuali note o richieste particolari"
+    }
+  },
+  "en": {
+    "respondez": "- Répondez s'il vous plaît -",
+    "time": "by May 10th 2025",
+    "name1": "Hey ",
+    "name2": "It's our pleasure to invite you to Giulio&Vanessa's wedding 2.0!",
+    "name2_p": "It's our pleasure to invite you to Giulio&Vanessa's wedding 2.0!",
+    "date": "Saturday August 16th 2025",
+    "place": "Our Back Garden",
+    "privately": "or contact us privately!",
+    "visit": "for more info visit",
+    "website": "our website!",
+    "link": "https://vanulio.fun/",
+    "attendingButton": "I will be attending",
+    "notAttending": "I will not be attending",
+    "sorryNotAttending": "We're sorry you can't make it!",
+    "replyNow": "Reply now",
+    "thanksForReplying": "Thank you for replying!",
+    "dietaryRestrictions": "Do you have any dietary preferences?",
+    "errorMessage": "Please fill in all the fields. Numeric fields must contain only numbers.",
+    "form": {
+      "guests": "Number attending",
+      "vegetarians": "Vegetarian",
+      "notes": "Please write any notes or special requests here"
+    }
+  }
+}

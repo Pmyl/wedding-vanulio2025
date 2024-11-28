@@ -1,0 +1,155 @@
+<hr class="header" />
+<div class="rsvp-card data-loaded">
+    <div class="rsvp-card-content">
+        <div class="rsvp-top-right-image">
+            <img src="rsvp/assets/flower.png" />
+        </div>
+        <div class="rsvp-bottom-left-image">
+            <img src="rsvp/assets/flower.png" />
+        </div>
+        <div class="rsvp-rsvp">
+            <img src="rsvp/assets/rsvptext.png" />
+        </div>
+        <div class="to-show-when-data">
+            <p class="rsvp-respondez">{{ respondez }}</p>
+            <p class="rsvp-time">{{ time }}</p>
+            <p class="rsvp-name">
+                {{ name1 }} {{ name }}<br />{% if guests > 1 %} {{ name2 }} {%
+                else %} {{ name2_p }} {% endif %}
+            </p>
+            <p class="rsvp-date">{{ date }}</p>
+            <p class="rsvp-place">{{ place }}</p>
+            <p class="rsvp-place-address">
+                50 Oakdale Road<br />Nottingham NG3 7EG
+            </p>
+            <p class="rsvp-website">
+                <span class="rsvp-website-visit">{{ visit }}</span>
+                <a
+                    class="rsvp-website-link link"
+                    target="_blank"
+                    href="{{link}}"
+                    >{{ website }}
+                </a>
+            </p>
+            <div class="rsvp-choice-container">
+                {% if not responded or attending %}
+                <button
+                    class="rsvp-choice-button"
+                    onclick="(document.getElementById('attending').classList.remove('hidden'),document.getElementById('not-attending').classList.add('hidden'))"
+                >
+                    {{ attendingButton }}
+                </button>
+                {% endif %} {% if not responded or not attending %}
+                <button
+                    class="rsvp-choice-button"
+                    onclick="(document.getElementById('attending').classList.add('hidden'),document.getElementById('not-attending').classList.remove('hidden'))"
+                >
+                    {{ notAttending }}
+                </button>
+                {% endif %}
+            </div>
+            <div
+                id="attending"
+                class="rsvp-choice-attending {% if not responded or not attending %}hidden{% endif %}"
+            >
+                <form>
+                    <div class="form-guests">
+                        <label for="guests">{{ form.guests }}</label>
+                        <input
+                            id="guests"
+                            type="number"
+                            min="0"
+                            name="guests"
+                            value="{{ guests }}"
+                            {%
+                            if
+                            responded
+                            %}readonly="true"
+                            {%
+                            endif
+                            %}
+                        />
+                    </div>
+                    <p class="rsvp-dietary-restrictions">
+                        {{ dietaryRestrictions }}
+                    </p>
+                    <div class="form-vegetarians">
+                        <label for="vegetarians">{{ form.vegetarians }}</label>
+                        <input
+                            id="vegetarians"
+                            type="number"
+                            min="0"
+                            name="vegetarians"
+                            value="0"
+                            {%
+                            if
+                            responded
+                            %}readonly="true"
+                            {%
+                            endif
+                            %}
+                        />
+                    </div>
+                    <div class="form-notes">
+                        <label for="notes">{{ form.notes }}</label>
+                        <textarea
+                            id="notes"
+                            name="notes"
+                            {%
+                            if
+                            responded
+                            %}readonly="true"
+                            {%
+                            endif
+                            %}
+                        ></textarea>
+                    </div>
+                    <div class="rsvp-reply-now-container">
+                        {% if not responded %}
+                        <button
+                            class="rsvp-reply-now"
+                            hx-post="/api/attending"
+                            hx-on::before-request="beforeRequest()"
+                            hx-on::after-request="afterRequest(event.detail)"
+                        >
+                            {{ replyNow }}
+                        </button>
+                        {% else %} {{ thanksForReplying }} {% endif %}
+                    </div>
+                </form>
+            </div>
+            <div
+                id="not-attending"
+                class="rsvp-choice-not-attending {% if not responded or attending %}hidden{% endif %}"
+            >
+                {{ sorryNotAttending }}
+                <div class="rsvp-reply-now-container">
+                    {% if not responded %}
+                    <button
+                        class="rsvp-reply-now"
+                        hx-post="/api/not-attending"
+                        hx-on::before-request="beforeRequest()"
+                        hx-on::after-request="afterRequest(event.detail)"
+                    >
+                        {{ replyNow }}
+                    </button>
+                    {% else %} {{ thanksForReplying }} {% endif %}
+                </div>
+            </div>
+            <div id="error-message">{{ errorMessage }}</div>
+        </div>
+    </div>
+</div>
+<script>
+    function beforeRequest() {
+        document.getElementById("error-message").classList.remove("show");
+    }
+
+    function afterRequest(detail) {
+        if (detail.successful) {
+            location.reload();
+        } else {
+            document.getElementById("error-message").classList.add("show");
+        }
+    }
+</script>

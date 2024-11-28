@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <link rel="stylesheet" href="rsvp/rsvp.css" />
+        <script src="https://unpkg.com/htmx.org@2.0.3"></script>
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+        />
+        <link
+            href="https://fonts.googleapis.com/css?family=Roboto&display=swap"
+            rel="stylesheet"
+        />
+        <link rel="icon" type="image/gif" href="../assets/favicon.gif" />
+        <title>RSVP</title>
+    </head>
+    <body>
+        <div class="main" hx-get="/api/rsvp" hx-trigger="load"></div>
+    </body>
+    <script>
+        document.body.addEventListener("htmx:configRequest", (evt) => {
+            evt.detail.parameters["_id"] = new URLSearchParams(
+                window.location.search,
+            ).get("_id");
+        });
+    </script>
+</html>
