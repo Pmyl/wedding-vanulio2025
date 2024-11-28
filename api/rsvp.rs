@@ -2,7 +2,7 @@ use std::collections::HashMap;
 
 use tera::{Context, Tera};
 use vercel_runtime::{run, Body, Error, Request, Response, StatusCode};
-use wedding_vanulio2025::{FromBlobError, Invite, Language};
+use wedding_vanulio2025::{FromBlobError, Invite, InviteId, Language};
 
 #[tokio::main]
 async fn main() -> Result<(), Error> {
@@ -10,7 +10,7 @@ async fn main() -> Result<(), Error> {
 }
 
 pub async fn handler(req: Request) -> Result<Response<Body>, Error> {
-    let query_params: HashMap<String, String> = req
+    let mut query_params: HashMap<String, String> = req
         .uri()
         .query()
         .map(|v| {
@@ -21,14 +21,14 @@ pub async fn handler(req: Request) -> Result<Response<Body>, Error> {
         .unwrap_or_else(HashMap::new);
     println!("Query params {:?}", query_params);
 
-    let Some(id) = query_params.get("_id") else {
+    let Some(id) = query_params.remove("_id") else {
         return Ok(Response::builder()
             .status(StatusCode::OK)
             .header("Content-Type", "text/html")
             .body("Invalid url".into())?);
     };
 
-    if id.len() != 32 {
+    let Ok(id) = InviteId::new(id) else {
         return Ok(Response::builder()
             .status(StatusCode::OK)
             .header("Content-Type", "text/html")
@@ -37,7 +37,7 @@ pub async fn handler(req: Request) -> Result<Response<Body>, Error> {
 
     println!("Id {:?}", id);
 
-    let invite = match Invite::from_blob(id).await {
+    let invite = match Invite::from_blob(&id).await {
         Ok(i) => i,
         Err(err) => match err {
             FromBlobError::Error(error) => Err(error)?,

@@ -1,5 +1,5 @@
 use vercel_runtime::{run, Body, Error, Request, Response, StatusCode};
-use wedding_vanulio2025::Invite;
+use wedding_vanulio2025::{Invite, InviteId};
 
 #[tokio::main]
 async fn main() -> Result<(), Error> {
@@ -30,7 +30,13 @@ pub async fn handler(_req: Request) -> Result<Response<Body>, Error> {
         let invite: Invite = serde_json::from_reader(invite_file)?;
         println!("Invite deserialized");
 
-        invite.update_in_blob(&file_name).await?;
+        let Ok(id) = InviteId::new(file_name.clone()) else {
+            return Ok(Response::builder()
+                .status(StatusCode::BAD_REQUEST)
+                .body(format!("Invalid invite id {}", file_name).into())?);
+        };
+
+        invite.update_in_blob(&id).await?;
     }
 
     Ok(Response::builder()

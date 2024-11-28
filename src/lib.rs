@@ -27,15 +27,32 @@ pub enum Language {
     English,
 }
 
+#[derive(Debug)]
+pub struct InviteId(String);
+
+impl InviteId {
+    pub fn new(id: String) -> Result<Self, Box<dyn Error + Send + Sync>> {
+        if id.len() != 32 {
+            return Err("Invite id must be 32 characters long".into());
+        }
+
+        Ok(Self(id))
+    }
+
+    pub fn as_str(&self) -> &str {
+        &self.0
+    }
+}
+
 impl Invite {
-    pub async fn update_in_blob(&self, id: &str) -> Result<(), Box<dyn Error + Send + Sync>> {
+    pub async fn update_in_blob(&self, id: &InviteId) -> Result<(), Box<dyn Error + Send + Sync>> {
         let invite_serialized = serde_json::to_string(&self)?;
         println!("Invite re-serialized");
 
         let blob_client = VercelBlobClient::new();
         let blobs = blob_client
             .list(vercel_blob::client::ListCommandOptions {
-                prefix: Some(format!("invites/{}", id)),
+                prefix: Some(format!("invites/{}", id.as_str())),
                 ..Default::default()
             })
             .await?;
@@ -53,7 +70,7 @@ impl Invite {
 
         let put_result = blob_client
             .put(
-                &format!("invites/{}", id),
+                &format!("invites/{}", id.as_str()),
                 invite_serialized,
                 PutCommandOptions {
                     content_type: Some("application/json".to_string()),
@@ -69,12 +86,12 @@ impl Invite {
         Ok(())
     }
 
-    pub async fn from_blob(id: &str) -> Result<Self, FromBlobError> {
+    pub async fn from_blob(id: &InviteId) -> Result<Self, FromBlobError> {
         let blob_client = VercelBlobClient::new();
 
         let blobs = blob_client
             .list(vercel_blob::client::ListCommandOptions {
-                prefix: Some(format!("invites/{}", id)),
+                prefix: Some(format!("invites/{}", id.as_str())),
                 ..Default::default()
             })
             .await?;
@@ -84,7 +101,7 @@ impl Invite {
         }
 
         if blobs.blobs.len() == 0 {
-            println!("Invite not found with id {}", id);
+            println!("Invite not found with id {}", id.as_str());
             return Err(FromBlobError::NotFound);
         }
 
