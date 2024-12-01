@@ -4,5 +4,5 @@
 .env
 .env.local
 .env.development.local
-/api/invites
+/api/.invites
 ids.txt

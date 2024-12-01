@@ -79,8 +79,8 @@ impl Invite {
             )
             .await?;
         println!(
-            "Invite uploaded to file {} with name {}",
-            put_result.url, put_result.pathname
+            "Invite for {} uploaded to file {} with name {}",
+            self.name, put_result.url, put_result.pathname
         );
 
         Ok(())
@@ -125,10 +125,14 @@ impl Invite {
 
         println!("Sending notification");
 
-        let vanulio_email = env::var("VANULIO_EMAIL").unwrap();
-        let giulio_email = env::var("GIULIO_EMAIL").unwrap();
-        let vanulio_user = env::var("VANULIO_USER").unwrap();
-        let vanulio_password = env::var("VANULIO_PASSWORD").unwrap();
+        let vanulio_email =
+            env::var("VANULIO_EMAIL").expect("Expect VANULIO_EMAIL env variable to be set");
+        let giulio_email =
+            env::var("GIULIO_EMAIL").expect("Expect GIULIO_EMAIL env variable to be set");
+        let vanulio_user =
+            env::var("VANULIO_USER").expect("Expect VANULIO_USER env variable to be set");
+        let vanulio_password =
+            env::var("VANULIO_PASSWORD").expect("Expect VANULIO_PASSWORD env variable to be set");
 
         let mut message = MessageBuilder::new()
             .from(("Vanulio", vanulio_email.as_ref()))
@@ -147,7 +151,7 @@ impl Invite {
                     self.name,
                     self.guests,
                     self.vegetarians,
-                    self.notes.unwrap_or_default()
+                    tera::escape_html(&self.notes.unwrap_or_default())
                 ));
         } else {
             message = message
