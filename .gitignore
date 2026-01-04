@@ -6,3 +6,4 @@
 .env.development.local
 /api/.invites
 ids.txt
+/vows

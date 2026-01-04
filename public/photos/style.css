@@ -1,0 +1,157 @@
+:root {
+    --greenColor: #a4d79b;
+    --greenColorTransparent: rgb(164, 215, 155, 0.5);
+    --textColor: #464646;
+    --color1: #ffe2bb;
+    --color1Transparent: #ffe2bb80;
+    --color2: #f49bb9;
+    --color2Transparent: #f49bb980;
+    --color3: #a1d3dc;
+    --color3Transparent: #a1d3dc80;
+    --color4: #c2dcad;
+    --color4Transparent: #c2dcad80;
+    --color5: #b8d779;
+    --color5Transparent: #b8d77980;
+}
+
+body {
+    margin: 0;
+    background-color: #eee;
+    font-family: "Aleo Light", sans-serif;
+    color: var(--textColor);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.hero-photo-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-image: url("../assets/V-G-photo.jpg");
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    filter: brightness(0.92);
+    z-index: 1;
+}
+
+.photo-links-bar {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100vw;
+    background: linear-gradient(to top, rgba(30, 30, 30, 0.93) 80%, rgba(30, 30, 30, 0.45) 100%);
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 24px;
+    padding: 32px 0 24px 0;
+    z-index: 2;
+}
+
+.photographer-link,
+.google-drive-link {
+    display: inline-block;
+    padding: 18px 38px;
+    border-radius: 12px;
+    font-weight: bold;
+    font-size: 1.18em;
+    text-decoration: none;
+    border: none;
+    outline: none;
+    transition:
+        background 0.2s,
+        transform 0.2s;
+}
+
+.photographer-link {
+    background-color: var(--color2, #f49bb9);
+    color: #606060;
+    box-shadow: 0 4px 16px 0 rgba(244, 155, 185, 0.13);
+}
+
+.photographer-link:hover,
+.photographer-link:focus {
+    background-color: #d37aa3;
+    transform: translateY(-2px) scale(1.03);
+}
+
+.google-drive-link {
+    background-color: var(--color3, #a1d3dc);
+    color: #606060;
+    font-size: 1em;
+    box-shadow: 0 2px 8px 0 rgba(161, 211, 220, 0.13);
+}
+
+.google-drive-link:hover,
+.google-drive-link:focus {
+    background-color: #7bb7c6;
+    transform: translateY(-1px) scale(1.02);
+}
+
+@media (max-width: 700px) {
+    .photo-links-bar {
+        padding: 18px 0 14px 0;
+        gap: 10px;
+    }
+    .photographer-link,
+    .google-drive-link {
+        padding: 14px 18px;
+        font-size: 1em;
+    }
+}
+
+main {
+    width: 100vw;
+    height: 100vh;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-photo-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 1;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    filter: brightness(0.92);
+}
+
+.photo-links-bar {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100vw;
+    min-height: 110px;
+    background: rgba(30, 30, 30, 0.6);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    z-index: 10;
+    padding: 32px 0 24px 0;
+    box-sizing: border-box;
+}
+
+@media (max-width: 700px) {
+    main {
+        padding: 0;
+    }
+    .photo-links-bar {
+        padding: 18px 0 14px 0;
+        min-height: 90px;
+    }
+}

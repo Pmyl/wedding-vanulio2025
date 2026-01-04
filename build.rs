@@ -24,6 +24,16 @@ fn main() {
         .write_all(rendered.as_bytes())
         .unwrap();
 
+    let rendered_photos = tera.render("photos.html", &context).unwrap();
+    std::fs::OpenOptions::new()
+        .create(true)
+        .write(true)
+        .truncate(true)
+        .open("public/photos/index.html")
+        .unwrap()
+        .write_all(rendered_photos.as_bytes())
+        .unwrap();
+
     let translations_json_value = translations_json.remove("it").unwrap();
     let context = Context::from_value(translations_json_value).unwrap();
     let rendered = tera.render("index.html", &context).unwrap();
@@ -35,6 +45,17 @@ fn main() {
         .open("public/it/index.html")
         .unwrap()
         .write_all(rendered.as_bytes())
+        .unwrap();
+
+    let rendered_photos = tera.render("photos.html", &context).unwrap();
+    fs::create_dir("public/it/photos").ok();
+    std::fs::OpenOptions::new()
+        .create(true)
+        .write(true)
+        .truncate(true)
+        .open("public/it/photos/index.html")
+        .unwrap()
+        .write_all(rendered_photos.as_bytes())
         .unwrap();
 
     println!("cargo:rerun-if-changed=templates");

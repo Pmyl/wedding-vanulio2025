@@ -72,6 +72,22 @@ body {
     color: var(--textColor);
 }
 
+.photos-link {
+    display: block;
+    width: 100vw;
+    background-color: var(--color2);
+    color: white;
+    text-align: center;
+    padding: 15px 0;
+    font-size: 1.5em;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.photos-link:hover {
+    background-color: #d37aa3;
+}
+
 .married {
     width: 100%;
 }
@@ -153,18 +169,11 @@ body {
     justify-content: center;
 }
 
-.married
-    .married-polaroid-container
-    .married-polaroid
-    .married-polaroid-frame
-    .married-polaroid-frame-image {
+.married .married-polaroid-container .married-polaroid .married-polaroid-frame .married-polaroid-frame-image {
     height: 260px;
 }
 
-.married
-    .married-polaroid-container
-    .married-polaroid
-    .married-polaroid-save-date {
+.married .married-polaroid-container .married-polaroid .married-polaroid-save-date {
     padding: 0;
     margin: 5px;
     text-transform: uppercase;
@@ -180,12 +189,7 @@ body {
 
 @media only screen and (min-width: 649px) {
     .married .married-polaroid-container .married-polaroid-banner {
-        background-image: linear-gradient(
-            to right,
-            var(--color2Transparent),
-            var(--color2),
-            var(--color2Transparent)
-        );
+        background-image: linear-gradient(to right, var(--color2Transparent), var(--color2), var(--color2Transparent));
         background-color: transparent;
     }
 }
@@ -274,12 +278,7 @@ body {
 
 @media only screen and (min-width: 649px) {
     .section-divider {
-        background-image: linear-gradient(
-            to right,
-            var(--maincolorTransparent),
-            var(--maincolor),
-            var(--maincolorTransparent)
-        );
+        background-image: linear-gradient(to right, var(--maincolorTransparent), var(--maincolor), var(--maincolorTransparent));
         background-color: transparent;
     }
 }
@@ -331,10 +330,7 @@ body {
     justify-content: space-between;
 }
 
-.info
-    .info-details
-    .info-details-events
-    .info-details-event:not(:last-of-type) {
+.info .info-details .info-details-events .info-details-event:not(:last-of-type) {
     padding-right: 20px;
 }
 
@@ -342,76 +338,40 @@ body {
     flex: 1;
 }
 
-.info
-    .info-details
-    .info-details-events
-    .info-details-event:not(:first-of-type) {
+.info .info-details .info-details-events .info-details-event:not(:first-of-type) {
     margin-left: 20px;
 }
 
-.info
-    .info-details
-    .info-details-events
-    .info-details-event
-    .info-details-event-img {
+.info .info-details .info-details-events .info-details-event .info-details-event-img {
     text-align: center;
     margin: 0 0 10px;
 }
 
-.info
-    .info-details
-    .info-details-events
-    .info-details-event
-    .info-details-event-img
-    img {
+.info .info-details .info-details-events .info-details-event .info-details-event-img img {
     width: 50px;
     height: 50px;
 }
 
-.info
-    .info-details
-    .info-details-events
-    .info-details-event
-    .info-details-event-img {
+.info .info-details .info-details-events .info-details-event .info-details-event-img {
     height: 50px;
 }
 
-.info
-    .info-details
-    .info-details-events
-    .info-details-event
-    .info-details-event-time,
-.info
-    .info-details
-    .info-details-events
-    .info-details-event
-    .info-details-event-what {
+.info .info-details .info-details-events .info-details-event .info-details-event-time,
+.info .info-details .info-details-events .info-details-event .info-details-event-what {
     margin: 0;
     text-align: center;
 }
 
-.info
-    .info-details
-    .info-details-events
-    .info-details-event
-    .info-details-event-when {
+.info .info-details .info-details-events .info-details-event .info-details-event-when {
     font-size: 1.2em;
 }
 
-.info
-    .info-details
-    .info-details-events
-    .info-details-event
-    .info-details-event-what {
+.info .info-details .info-details-events .info-details-event .info-details-event-what {
     font-size: 1.2em;
     font-style: italic;
 }
 
-.info
-    .info-details
-    .info-details-events
-    .info-details-event
-    .info-details-event-what-sub {
+.info .info-details .info-details-events .info-details-event .info-details-event-what-sub {
     margin: 5px 0 0;
     text-align: center;
     font-size: 0.8em;
@@ -450,10 +410,7 @@ body {
     flex-wrap: wrap;
 }
 
-.accommodation
-    .accommodation-place-container
-    .accommodation-place-img-container
-    img {
+.accommodation .accommodation-place-container .accommodation-place-img-container img {
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -516,17 +473,13 @@ body {
 }
 
 .accommodation .accommodation-routes-container .accommodation-ema-route-intro,
-.accommodation
-    .accommodation-routes-container
-    .accommodation-london-route-intro {
+.accommodation .accommodation-routes-container .accommodation-london-route-intro {
     text-align: center;
     margin: 0;
 }
 
 .accommodation .accommodation-routes-container .accommodation-ema-route-details,
-.accommodation
-    .accommodation-routes-container
-    .accommodation-london-route-details {
+.accommodation .accommodation-routes-container .accommodation-london-route-details {
     margin: 5px 0 0;
 }
 
@@ -562,9 +515,7 @@ body {
         padding: 0 15%;
     }
 
-    .accommodation
-        .accommodation-place-container
-        .accommodation-place-description {
+    .accommodation .accommodation-place-container .accommodation-place-description {
         padding: 0 50px;
     }
     .accommodation .accommodation-routes-container {

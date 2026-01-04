@@ -1,10 +1,16 @@
 {
   "it": {
+    "lang": "it",
     "assetsPosition": "..",
+    "photosAssetsPosition": "../..",
+    "photosLinkText": "📷 Guarda le foto del matrimonio! 📷",
+    "photosPageTitle": "Foto del Matrimonio",
+    "photographerLinkText": "Guarda le foto della fotografa",
+    "googleDriveLinkText": "Guarda le foto di amici e famiglia",
 
     "marriedSubtitle": "<s>si sposano</s><br />celebrano il loro amore!",
     "saveTheDate": "segnatevi la data",
-    "countdown": "Countdown al grande giorno",
+    "countdown": "Come passa il tempo!",
     "days": "giorni",
     "hours": "ore",
     "minutes": "minuti",
@@ -32,11 +38,17 @@
     "registryThanks": "Non potremmo ringraziarvi abbastanza!!"
   },
   "en": {
+    "lang": "en",
     "assetsPosition": ".",
+    "photosAssetsPosition": "..",
+    "photosLinkText": "📷 Check Out the Wedding Photos! 📷",
+    "photosPageTitle": "Wedding Photos",
+    "photographerLinkText": "See the photographer's photos",
+    "googleDriveLinkText": "See friends & family photos",
 
     "marriedSubtitle": "<s>are getting married</s><br />are celebrating their love!",
     "saveTheDate": "save the date",
-    "countdown": "Countdown to the big day",
+    "countdown": "Time flies!",
     "days": "days",
     "hours": "hours",
     "minutes": "minutes",
